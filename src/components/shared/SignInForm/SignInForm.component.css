@@ -1,0 +1,46 @@
+.SignInForm
+{
+    background-color: darkgray;
+    width: 100vw;
+    height: 100vh;
+}
+
+div[id="login-form-main-div"] > h1
+{
+    position: relative;
+    top: 50px;
+    left: 50%;
+    margin: 0px 0px 0px -60px;
+}
+
+#login-form-main-div
+{
+    background-color: gray;
+    position: absolute;
+    width: 40%;
+    height: 100vh;
+    left: 50%;
+    margin: -75px 0 0 -17%;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#sub-login-form-div
+{
+    position: absolute;
+    width: 100%;
+    top: 40%;
+}
+
+div[id="sub-login-form-div"] > input
+{
+    width: 95%;
+    margin: 0px 0px 3px 10px;
+}
+
+#login
+{
+    position: relative;
+    left: 45%;
+    margin: 0px 0px 0px 0px;
+}

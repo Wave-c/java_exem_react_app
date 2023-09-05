@@ -1,0 +1,18 @@
+.RoomCard
+{
+    margin: 10px 10px 10px 10px;
+    display: inline-block;
+    width: 120px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 5%;
+}
+
+img
+{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    top: 10px;
+}

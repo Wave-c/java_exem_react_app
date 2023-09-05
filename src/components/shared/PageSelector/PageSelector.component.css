@@ -1,0 +1,10 @@
+.PageSelector
+{
+    height: 50px;
+}
+
+h1
+{
+    cursor: pointer;
+    display: inline;
+}
