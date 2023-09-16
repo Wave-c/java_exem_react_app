@@ -8,7 +8,9 @@ const RoomCard = (props) => {
   return (
     <div className="RoomCard">
       <img width="100px" height="100px" href="" alt="rooms"/>
-      <Link to={link} state={props.room}><span className="address">{props.room.street + " " + props.room.houseNumber}</span></Link>
+      <Link to={link} state={props.room}>
+        <span className="title">{props.room.title}</span>
+      </Link>
     </div>
   ); 
 };

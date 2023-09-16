@@ -12,6 +12,11 @@ const Header = (props) => {
       <Link to="/"><img id="logo" src={Logo} alt="Logo"/></Link>
       <b><span id="name">Аренда помещений</span></b>
       <SignInOrRegisterOrAccaunt></SignInOrRegisterOrAccaunt>
+      <div id="to-rent-out-div">
+        <Link to="/to-rent-out">
+          <h4>Сдать в аренду</h4>
+        </Link>
+      </div>
     </div>
   ); 
 };

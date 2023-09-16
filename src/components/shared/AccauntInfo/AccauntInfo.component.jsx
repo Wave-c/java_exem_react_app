@@ -3,16 +3,60 @@ import "./AccauntInfo.component.css";
 import Cookies from "universal-cookie";
 import { useState, useEffect } from "react";
 
+function sendFileToServer(file, cookie, user) {
+  var reader = new FileReader();
+  var fileByteArray = [];
+  reader.readAsArrayBuffer(file);
+  reader.onloadend = function (evt) {
+    if (evt.target.readyState == FileReader.DONE) {
+       var arrayBuffer = evt.target.result,
+           array = new Uint8Array(arrayBuffer);
+       for (var i = 0; i < array.length; i++) {
+           fileByteArray.push(array[i]);
+      }
+    }
+    console.log(fileByteArray);
+    
+    fetch("http://localhost:8080/secured/set-accaunt-img",
+    {
+      method: "POST",
+      headers:
+      {
+        "Authorization" : "Bearer " + cookie.get("jwt"),
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify({
+        accauntImg: fileByteArray,
+        userName: user.username
+      })
+    })
+  }
+}
+
 const AccauntInfo = (props) => { 
   let inputRefs = new Array();
 
-  for(let i = 0; i < 7; i++)
+  for(let i = 0; i < 8; i++)
   {
     inputRefs.push(React.createRef());
   }
 
   const [user, setUser] = useState({});
   const cookie = new Cookies();
+
+  const onValueChange = (e)=>
+  {
+    var file;
+    e.preventDefault();
+
+    console.log(e.dataTransfer);
+
+    file = e.dataTransfer.files[0];
+
+    console.log(file);
+
+    sendFileToServer(file, cookie, user);
+  }
 
   useEffect(() => {
     fetch("http://localhost:8080/secured/get-accaunt-data",
@@ -45,6 +89,8 @@ const AccauntInfo = (props) => {
       <input type="text" ref={inputRefs[5]} value={user.country}/>
       <h5>Город</h5>
       <input type="text" ref={inputRefs[6]} value={user.city}/>
+      <br/>
+      <input type="file" ref={inputRefs[7]} onDrop={onValueChange}/>
     </div>
   ); 
 };

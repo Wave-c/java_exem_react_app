@@ -14,15 +14,15 @@ const RegisterForm = (props) =>
   const onButtonClick = () =>
   {
     var regUser = {
-      "lastName" : inputRefs[0].current.value,
-      "firstName" : inputRefs[1].current.value,
+      "last_name" : inputRefs[0].current.value,
+      "first_name" : inputRefs[1].current.value,
       "patronymic" : inputRefs[2].current.value,
       "country" : inputRefs[3].current.value,
       "city" : inputRefs[4].current.value,
-      "login" : inputRefs[5].current.value,
+      "username" : inputRefs[5].current.value,
       "password" : inputRefs[6].current.value
     }
-    fetch("http://localhost:8080/auth/register",
+    fetch("http://localhost:8080/auth/registration",
     {
       method : "POST",
 
@@ -30,7 +30,7 @@ const RegisterForm = (props) =>
 
       headers :
       {
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/json"
       }
     }).then((response) => 
       {

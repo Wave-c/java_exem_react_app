@@ -4,17 +4,26 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/shared/Header/Header.component.jsx";
 import RoomCard from "../components/shared/RoomCard/RoomCard.component.jsx";
 import PageSelector from "./shared/PageSelector/PageSelector.component.jsx";
+import Cookies from "universal-cookie";
 
 export default function Root()
 {
-    //const temp = 0;
+    var cookie = new Cookies();
     const [roomsList, setRoomsList] = useState([]);
     const [page, setPage] = useState(1);
-    var urlParams = new URLSearchParams({page:page})
+    var urlParams = new URLSearchParams({page:page});
+    var headers;
+    if(cookie.get("jwt") != null)
+    {
+        headers = new Headers({
+            "Authorization" : "Bearer " + cookie.get("jwt")
+        })
+    }
     useEffect(() => {
         fetch("http://localhost:8080/main/get-room-cards-list?" + urlParams,
         {
             method: "GET",
+            headers: headers
         }).then(async(response) => {
             setRoomsList(JSON.parse(await response.text().then(response=>response)));
         });

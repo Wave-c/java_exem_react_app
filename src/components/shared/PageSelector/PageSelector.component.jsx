@@ -12,8 +12,8 @@ const PageSelector = (props) => {
   }
   return (
     <div className="PageSelector">
-      <h1 onClick={pageMinusHandler}>&lt;</h1>
-      <h1 onClick={pagePlusHandler}>&gt;</h1>
+      <h1 className="page-selector-button" onClick={pageMinusHandler}>&lt;</h1>
+      <h1 className="page-selector-button" onClick={pagePlusHandler}>&gt;</h1>
     </div>
   ); 
 };

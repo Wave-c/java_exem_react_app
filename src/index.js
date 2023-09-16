@@ -9,6 +9,7 @@ import SignInForm from './components/shared/SignInForm/SignInForm.component.jsx'
 import RegisterForm from './components/shared/RegisterForm/RegisterForm.component.jsx';
 import Room from './components/shared/Room/Room.component.jsx';
 import Accaunt from './components/shared/Accaunt/Accaunt.component.jsx';
+import ToRentOut from './components/shared/ToRentOut/ToRentOut.component';
 
 const router = createBrowserRouter([{
   path: "/",
@@ -30,6 +31,10 @@ const router = createBrowserRouter([{
 {
   path: "accaunt",
   element: <Accaunt/>
+},
+{
+  path: "to-rent-out",
+  element: <ToRentOut/>
 }]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
