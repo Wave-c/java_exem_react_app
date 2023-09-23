@@ -41,7 +41,14 @@ const ToRentOut = (props) => {
       }
     }).then(async response => 
       {
-        responseString = await response.text();
+        if(response.status === 401)
+        {
+          window.location.replace("/sign-in-form");
+        }
+        if(response.status == 200)
+        {
+          responseString = await response.text();
+        }
       })
       if(responseString === "ok")
       {

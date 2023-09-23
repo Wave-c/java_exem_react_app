@@ -28,7 +28,13 @@ const Applications = (props) => {
             "Authorization" : "Bearer " + cookie.get("jwt")
           }
         })
-        .then(response=>{});
+        .then(response=>
+        {
+          if(response.status === 401)
+          {
+            window.location.replace("/sign-in-form");
+          }
+        });
       }
     }, okOrCancel);
 

@@ -21,8 +21,15 @@ const Accaunt = (props) => {
       }
     })
     .then(async response => {
-      setRentaledRooms(JSON.parse((await response.text())));
-      console.log(rentaledRooms);
+      if(response.status === 401)
+      {
+        window.location.replace("/sign-in-form");
+      }
+      if(response.status === 200)
+      {
+        setRentaledRooms(JSON.parse((await response.text())));
+        console.log(rentaledRooms);
+      }
     })
   }, rentaledRooms);
 

@@ -68,7 +68,17 @@ const AccauntInfo = (props) => {
         "Content-Type" : "application/json"
       }
     })
-      .then(async response => JSON.parse((await response.text()).split("ne splituy suka")))
+      .then(async response => 
+      {
+        if(response.status === 401)
+        {
+          window.location.replace("/sign-in-form");
+        }
+        if(response.status === 200)
+        {
+          JSON.parse((await response.text()).split("ne splituy"))
+        }
+      })
       .then(res => {setUser(res); console.log(res)});
   }, user);
 

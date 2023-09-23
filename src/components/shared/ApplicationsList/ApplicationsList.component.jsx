@@ -23,7 +23,14 @@ const ApplicationsList = (props) => {
     })
     .then(async response =>
       {
-        setRoomsAndIdsList(JSON.parse((await response.text())));
+        if(response.status === 401)
+        {
+          window.location.replace("/sign-in-form");
+        }
+        if(response.status === 200)
+        {
+          setRoomsAndIdsList(JSON.parse((await response.text())));
+        }
       });
   }, [])
 

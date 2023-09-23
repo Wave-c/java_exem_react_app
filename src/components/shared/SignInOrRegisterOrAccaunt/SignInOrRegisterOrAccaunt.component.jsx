@@ -56,8 +56,13 @@ const SignInOrRegisterOrAccaunt = (props) => {
       headers:{
         "Authorization" : "Bearer " + cookie.get("jwt")
       }
-    }).then(async response => await response.text())
-    .then(res => {userName = res; console.log(res)})
+    })
+    .then(async response => response.status===401 ? window.location.replace("/sign-in-form"): await response.text())
+    .then(res => 
+    {
+      userName = res; 
+      console.log(res)
+    });
     // .then(()=>{
     //   fetch("http://localhost:8080/secured/get-accaunt-img?" + new URLSearchParams({userName: userName}),
     //   {

@@ -59,7 +59,7 @@ const RegisterForm = (props) =>
                   var cookie = new Cookies();
                   cookie.set("jwt", jwt);
                   console.log("cookie jwt: " + cookie.get("jwt"));
-                  window.location.replace("/register-form");
+                  window.location.replace("/");
                 }
                 else
                 {
