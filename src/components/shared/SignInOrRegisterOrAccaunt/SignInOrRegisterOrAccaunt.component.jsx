@@ -50,7 +50,7 @@ const SignInOrRegisterOrAccaunt = (props) => {
     };
 
     var userName;
-    fetch("http://localhost:8080/secured/accaunt",
+    fetch("http://185.187.90.17:8080/secured/accaunt",
     {
       method:"GET",
       headers:{
@@ -82,9 +82,16 @@ const SignInOrRegisterOrAccaunt = (props) => {
     //   );
     // });
     return (
-      <Link to={'/accaunt'}>
-        <Avatar size="70px" round={true}/>
-      </Link>
+      <>
+        <div id="to-rent-out-div">
+          <Link to="/to-rent-out">
+            <h4>Сдать в аренду</h4>
+          </Link>
+        </div>
+        <Link to={'/accaunt'}>
+          <Avatar size="70px" round={true}/>
+        </Link>
+      </>
     )
   }
 };

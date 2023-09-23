@@ -32,3 +32,11 @@ button
     top: 10px;
     /* background-image: url("../../../Resours/accauntImg.PNG"); */
 }
+
+#to-rent-out-div
+{
+    display: inline-block;
+    right: 150px;
+    position: fixed;
+    top: 10px;
+}

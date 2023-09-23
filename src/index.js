@@ -10,6 +10,7 @@ import RegisterForm from './components/shared/RegisterForm/RegisterForm.componen
 import Room from './components/shared/Room/Room.component.jsx';
 import Accaunt from './components/shared/Accaunt/Accaunt.component.jsx';
 import ToRentOut from './components/shared/ToRentOut/ToRentOut.component';
+import ApplicationsList from './components/shared/ApplicationsList/ApplicationsList.component';
 
 const router = createBrowserRouter([{
   path: "/",
@@ -35,7 +36,13 @@ const router = createBrowserRouter([{
 {
   path: "to-rent-out",
   element: <ToRentOut/>
+},
+{
+  path: "accaunt/applications",
+  element: <ApplicationsList/>
 }]);
+
+require('events').EventEmitter.defaultMaxListeners = 11;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

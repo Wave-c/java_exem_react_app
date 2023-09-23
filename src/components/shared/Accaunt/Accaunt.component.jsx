@@ -6,13 +6,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
 import MyOrderLi from "../MyOrderLi/MyOrderLi.component";
+import { Link } from "react-router-dom";
 
 const Accaunt = (props) => { 
   const cookie = new Cookies();
   const [rentaledRooms, setRentaledRooms] = useState([]);
   useEffect(()=>
   {
-    fetch("http://localhost:8080/secured/get-rentaled-rooms", 
+    fetch("http://185.187.90.17:8080/secured/get-rentaled-rooms", 
     {
       method:"GET",
       headers:{
@@ -29,6 +30,7 @@ const Accaunt = (props) => {
     <div className="Accaunt">
       <Header/>
       <AccauntInfo/>
+      <Link to="applications">посмотреть заявки</Link>
       <div>
         <ol>
           {

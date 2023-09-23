@@ -17,7 +17,7 @@ function sendFileToServer(file, cookie, user) {
     }
     console.log(fileByteArray);
     
-    fetch("http://localhost:8080/secured/set-accaunt-img",
+    fetch("http://185.187.90.17:8080/secured/set-accaunt-img",
     {
       method: "POST",
       headers:
@@ -59,7 +59,7 @@ const AccauntInfo = (props) => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:8080/secured/get-accaunt-data",
+    fetch("http://185.187.90.17:8080/secured/get-accaunt-data",
     {
       method: "GET",
       headers: 

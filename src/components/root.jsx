@@ -20,7 +20,7 @@ export default function Root()
         })
     }
     useEffect(() => {
-        fetch("http://localhost:8080/main/get-room-cards-list?" + urlParams,
+        fetch("http://185.187.90.17:8080/main/get-room-cards-list?" + urlParams,
         {
             method: "GET",
             headers: headers

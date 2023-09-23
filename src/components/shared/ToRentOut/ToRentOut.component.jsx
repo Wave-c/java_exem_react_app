@@ -26,11 +26,11 @@ const ToRentOut = (props) => {
       floorNumber: inputRefs[7].current.value,
       apartmentNumber: inputRefs[8].current.value,
       price: inputRefs[9].current.value,
-      typeOfRental: inputRefs[10].current.value == "день" ? true : false,
+      typeOfRental: inputRefs[10].current.value === "день" ? true : false,
     }
     var responseString;
 
-    fetch("http://localhost:8080/secured/to-rent-out",
+    fetch("http://185.187.90.17:8080/secured/to-rent-out",
     {
       body: JSON.stringify(request),
       method:"POST",
